@@ -1,9 +1,9 @@
 class Player():
 
-    def __init__(self, discord_id: int):
-        self.id = discord_id
+    def __init__(self, member: discord.Member):
+        self.id = member.id
+        self.mention = member.mention
         self.name = None
-        self.mention = f'<@{discord_id}>'
         self.role = '乱'
         self.channel = None
         self.is_dead = False

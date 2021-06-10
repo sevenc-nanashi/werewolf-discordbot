@@ -28,7 +28,7 @@ class Invite(View):
         shuffle(self.members)
         l = list('ABCDEFGHI')
         for member in self.members[:9]:
-            p = Player(member.id)
+            p = Player(member)
             p.name = f'市民{l.pop(0)}'
             self.bot.game.players.append(p)
         embed = Embed(

@@ -22,7 +22,8 @@ class Debug(commands.Cog):
         ]
         l = list('ABCDEFGHI')
         for i in ids:
-            player = Player(i)
+            member = ctx.guild.get_member(i)
+            player = Player(member)
             player.name = f'市民{l.pop(0)}'
             self.bot.game.players.append(player)
 
