@@ -41,6 +41,7 @@ class Invite(View):
         await interaction.channel.send(embed=embed)
         
         await interaction.message.delete()
+        await self.stop()
 
     async def body(self):
         return Message(

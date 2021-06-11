@@ -14,6 +14,7 @@ class Vote(View):
 
         self.bot.game.decrease_task()
         await interaction.message.delete()
+        await self.stop()
 
     async def body(self):
         items = []

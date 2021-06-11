@@ -34,6 +34,7 @@ class Rolepanel(View):
                 p.role = role_list.pop(0)
         await interaction.channel.send('ゲーム参加者に役職を配布しました')
         await interaction.message.delete()
+        await self.stop()
 
     async def body(self):
         return Message(
