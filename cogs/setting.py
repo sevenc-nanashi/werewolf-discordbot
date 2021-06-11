@@ -9,6 +9,11 @@ class Setting(commands.Cog):
         self.bot = bot
 
     @commands.command()
+    async def max_player(self, ctx, number: int):
+        self.bot.game.settings.max_player = number
+        await ctx.send(f'ゲームの最大人数を {number} 人に設定しました')
+
+    @commands.command()
     async def invite(self, ctx):
         await Invite(self.bot, ctx.author.id).start(ctx.channel)
 
