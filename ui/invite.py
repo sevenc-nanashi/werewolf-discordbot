@@ -1,6 +1,7 @@
 from discord.ext.ui import Component, Button, View, Message
 from discord import Embed, Colour, ButtonStyle
 from random import shuffle
+from string import ascii_uppercase
 
 from lib.player import Player
 
@@ -25,15 +26,16 @@ class Invite(View):
     async def end(self, interaction):
         if interaction.user.id != self.author_id:
             return
+        max_player = self.bot.game.settings.max_player
         shuffle(self.members)
-        l = list('ABCDEFGHI')
-        for member in self.members[:9]:
+        l = list(ascii_uppercase)
+        for member in self.members[:max_player]:
             p = Player(member)
             p.name = f'市民{l.pop(0)}'
             self.bot.game.players.append(p)
         embed = Embed(
             title='ゲーム参加者が決定しました',
-            description='\n'.join([m.mention for m in self.members[:9]]),
+            description='\n'.join([m.mention for m in self.members[:max_player]]),
             colour=Colour.green()
         )
         await interaction.channel.send(embed=embed)
@@ -43,7 +45,7 @@ class Invite(View):
     async def body(self):
         return Message(
             embed=Embed(
-                title=f'参加者募集パネル｜{len(self.members)}/9',
+                title=f'参加者募集パネル｜{len(self.members)}/{self.bot.game.settings.max_player}',
                 description='\n'.join([m.mention for m in self.members]),
                 colour=Colour.blue()
             ),

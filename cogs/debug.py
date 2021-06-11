@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from string import ascii_uppercase
 
 from lib.player import Player
 
@@ -20,7 +21,7 @@ class Debug(commands.Cog):
             809760929264828446, 
             826152382139203634
         ]
-        l = list('ABCDEFGHI')
+        l = list(ascii_uppercase)
         for i in ids:
             member = ctx.guild.get_member(i)
             player = Player(member)

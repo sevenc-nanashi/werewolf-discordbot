@@ -7,6 +7,7 @@ class Game():
 
     def __init__(self):
         self.players = Players()
+        self.settings = Settings
         self.channels = Channels
         self.roles = Roles
         self.days = 1
@@ -44,6 +45,10 @@ class Game():
             else:
                 village_count += 1
         return village_count <= werewolf_count
+
+@dataclass
+class Settings:
+    max_player: int = 9
 
 @dataclass
 class Channels:
