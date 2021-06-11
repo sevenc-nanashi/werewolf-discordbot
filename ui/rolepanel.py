@@ -17,7 +17,7 @@ class Rolepanel(View):
     async def end(self, interaction):
         if interaction.user.id != self.author_id:
             return
-        role_list = list('狼狼村村村占霊狩狂')
+        role_list = list(self.bot.game.role_list(self.bot.game.settings.max_player))
         for p in self.bot.game.players:
             if p.role in role_list:
                 role_list.remove(p.role)

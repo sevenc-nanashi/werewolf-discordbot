@@ -100,7 +100,7 @@ class Main(commands.Cog):
 
             if game.is_werewolf_win():
                 await channels.alive.send('ゲーム終了｜人狼陣営の勝利です')
-                await ctx.channel.send(game.role_list)
+                await ctx.channel.send(game.role_table)
                 break
 
             embed = Embed(description=f'{game.days}日目朝｜{roles.alive.mention} {len(players.alives)}人', colour=Colour.blue())
@@ -108,7 +108,7 @@ class Main(commands.Cog):
             await channels.alive.send('処刑する人を話し合ってください')
             await channels.alive.set_permissions(roles.alive, send_messages=True)
             
-            game.times = 600
+            game.times = game.settings.times
             while game.times > 0:
                 game.times -= 1
                 if game.times % 60 == 0:
@@ -145,11 +145,11 @@ class Main(commands.Cog):
 
             if game.is_werewolf_win():
                 await channels.alive.send('ゲーム終了｜人狼陣営の勝利です')
-                await ctx.channel.send(game.role_list)
+                await ctx.channel.send(game.role_table)
                 break
             if game.is_village_win():
                 await channels.alive.send('ゲーム終了｜市民陣営の勝利です')
-                await ctx.channel.send(game.role_list)
+                await ctx.channel.send(game.role_table)
                 break
 
             game.days += 1

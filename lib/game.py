@@ -18,11 +18,23 @@ class Game():
         self.escort_target = None
 
     @property
-    def role_list(self) -> str:
+    def role_table(self) -> str:
         msg = ''
         for p in self.players:
             msg += f'\n{p.role_name} {p.mention}'
         return msg
+
+    def role_list(self, number: int) -> str:
+        if number == 5:
+            return '村村村占狼'
+        if number == 6:
+            return '村村村村占狼'
+        if number == 7:
+            return '村村占霊狩狼狼'
+        if number == 8:
+            return '村村村占霊狩狼狼'
+        if number == 9:
+            return '村村村占霊狩狂狼狼'
 
     def increase_task(self):
         self.tasks += 1
@@ -49,6 +61,7 @@ class Game():
 @dataclass
 class Settings:
     max_player: int = 9
+    times: int = 600
 
 @dataclass
 class Channels:
