@@ -20,11 +20,11 @@ class Vote(View):
         items = []
         for p in self.bot.game.players:
             items.append(
-                Button(p.name)
+                Button(p.symbol)
                     .on_click(async_interaction_partial(self.choice, p))
                     .disabled(p.is_dead)
             )
-        items = [items[x:x+3] for x in range(0, len(items), 3)]
+        items = [items[x:x+5] for x in range(0, len(items), 5)]
         return Message(
             embed=Embed(
                 title='投票する対象を選択してください',
