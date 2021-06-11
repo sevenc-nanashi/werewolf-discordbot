@@ -7,6 +7,7 @@ class Player():
         self.mention = member.mention
         self.nick = member.nick
         self.name = None
+        self.symbol = None
         self.role = '乱'
         self.channel = None
         self.is_dead = False
