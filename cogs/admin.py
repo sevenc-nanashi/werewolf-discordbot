@@ -23,7 +23,7 @@ class Admin(commands.Cog):
         await Invite(self.bot, ctx.author.id).start(ctx.channel)
 
     @commands.command()
-    async def rolepanel(self, ctx):
+    async def role_panel(self, ctx):
         await Rolepanel(self.bot, ctx.author.id).start(ctx.channel)
 
     @commands.command()

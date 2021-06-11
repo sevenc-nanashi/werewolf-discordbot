@@ -33,7 +33,7 @@ class Invite(View):
             player = Player(member)
             player.symbol = l.pop(0)
             player.name = f'市民{player.symbol}'
-            self.bot.game.players.append(p)
+            self.bot.game.players.append(player)
         embed = Embed(
             title='ゲーム参加者が決定しました',
             description='\n'.join([m.mention for m in self.members[:max_player]]),
