@@ -11,7 +11,7 @@ class Escort(View):
         embed = Embed(description=f'{p.mention} を護衛しました', colour=Colour.green())
         await interaction.channel.send(embed=embed)
 
-        await self.bot.game.decrease_task()
+        self.bot.game.decrease_task()
         await interaction.message.delete()
 
     async def body(self):

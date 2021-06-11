@@ -12,7 +12,7 @@ class Vote(View):
         await interaction.channel.send(embed=embed)
         await self.bot.game.channels.alive.send(f'{interaction.user.display_name} が投票しました')
 
-        await self.bot.game.decrease_task()
+        self.bot.game.decrease_task()
         await interaction.message.delete()
 
     async def body(self):

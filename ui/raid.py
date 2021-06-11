@@ -11,7 +11,7 @@ class Raid(View):
         embed = Embed(description=f'{p.mention} を襲撃しました', colour=Colour.green())
         await interaction.channel.send(embed=embed)
         
-        await self.bot.game.decrease_task()
+        self.bot.game.decrease_task()
         await interaction.message.delete()
 
     async def body(self):

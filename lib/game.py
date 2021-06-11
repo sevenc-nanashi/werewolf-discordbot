@@ -23,10 +23,10 @@ class Game():
             msg += f'\n{p.role_name} {p.mention}'
         return msg
 
-    async def increase_task(self):
+    def increase_task(self):
         self.tasks += 1
 
-    async def decrease_task(self):
+    def decrease_task(self):
         self.tasks -= 1
 
     def is_village_win(self) -> bool:
