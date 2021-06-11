@@ -17,14 +17,19 @@ class Rolepanel(View):
     async def end(self, interaction):
         if interaction.user.id != self.author_id:
             return
-        role_list = list(self.bot.game.role_list(self.bot.game.settings.max_player))
-        for p in self.bot.game.players:
+        game = self.bot.game
+        if game.settings.custom_role_list == None:
+            role_list = list(game.role_list(game.settings.max_player))
+        else:
+            role_list = list(game.settings.custom_role_list)
+
+        for p in game.players:
             if p.role in role_list:
                 role_list.remove(p.role)
             else:
                 p.role = '乱'
         shuffle(role_list)
-        for p in self.bot.game.players:
+        for p in game.players:
             if p.role == '乱':
                 p.role = role_list.pop(0)
         await interaction.channel.send('ゲーム参加者に役職を配布しました')

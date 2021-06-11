@@ -14,6 +14,11 @@ class Setting(commands.Cog):
         await ctx.send(f'ゲームの最大人数を {number} 人に設定しました')
 
     @commands.command()
+    async def custom_role(self, ctx, role_list):
+        self.bot.game.settings.custom_role_list = role_list
+        await ctx.send(f'ゲームのカスタムロールリストを設定しました')
+
+    @commands.command()
     async def invite(self, ctx):
         await Invite(self.bot, ctx.author.id).start(ctx.channel)
 

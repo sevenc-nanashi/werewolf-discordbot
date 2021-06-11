@@ -62,6 +62,7 @@ class Game():
 class Settings:
     max_player: int = 9
     times: int = 600
+    custom_role_list: str = None
 
 @dataclass
 class Channels:
