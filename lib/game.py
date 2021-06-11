@@ -1,3 +1,4 @@
+import discord
 from dataclasses import dataclass
 
 from lib.player import Players
@@ -46,12 +47,12 @@ class Game():
 
 @dataclass
 class Channels:
-    alive: None
-    dead: None
-    audience: None
-    wolfs: None
+    alive: discord.TextChannel = None
+    dead: discord.TextChannel = None
+    audience: discord.TextChannel = None
+    wolfs: discord.TextChannel = None
         
 @dataclass
 class Roles:
-    alive: None
-    dead: None
+    alive: discord.Role = None
+    dead: discord.Role = None
