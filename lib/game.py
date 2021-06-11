@@ -1,11 +1,13 @@
+from dataclasses import dataclass
+
 from lib.player import Players
 
 class Game():
 
     def __init__(self):
         self.players = Players()
-        self.channels = Channels()
-        self.roles = Roles()
+        self.channels = Channels
+        self.roles = Roles
         self.days = 1
         self.tasks = 0
         self.times = 0
@@ -42,16 +44,14 @@ class Game():
                 village_count += 1
         return village_count <= werewolf_count
 
-class Channels():
-
-    def __init__(self):
-        self.alive = None
-        self.dead = None
-        self.audience = None
-        self.wolfs = None
-
-class Roles():
-
-    def __init__(self):
-        self.alive = None
-        self.dead = None
+@dataclass
+class Channels:
+    alive: None
+    dead: None
+    audience: None
+    wolfs: None
+        
+@dataclass
+class Roles:
+    alive: None
+    dead: None
