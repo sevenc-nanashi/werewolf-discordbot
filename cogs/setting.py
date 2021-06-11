@@ -40,7 +40,7 @@ class Setting(commands.Cog):
             await item.delete()
         for player in self.bot.game.players:
             member = ctx.guild.get_member(player.id)
-            await member.edit(nick=None)
+            await member.edit(nick=player.nick)
             await player.channel.delete()
 
 def setup(bot):

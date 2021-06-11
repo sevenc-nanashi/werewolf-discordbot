@@ -30,8 +30,8 @@ class Invite(View):
         shuffle(self.members)
         l = list(ascii_uppercase)
         for member in self.members[:max_player]:
-            p = Player(member)
-            p.name = f'市民{l.pop(0)}'
+            player = Player(member)
+            player.name = f'市民{l.pop(0)}'
             self.bot.game.players.append(p)
         embed = Embed(
             title='ゲーム参加者が決定しました',

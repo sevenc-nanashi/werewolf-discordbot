@@ -5,6 +5,7 @@ class Player():
     def __init__(self, member: discord.Member):
         self.id = member.id
         self.mention = member.mention
+        self.nick = member.nick
         self.name = None
         self.role = '乱'
         self.channel = None
