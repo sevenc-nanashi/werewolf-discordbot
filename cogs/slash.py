@@ -4,7 +4,7 @@ from discord_slash import cog_ext, SlashContext
 
 guild_ids = [840795339723767838, 810011469381894174]
 
-class Commands(commands.Cog):
+class Slash(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -27,4 +27,4 @@ class Commands(commands.Cog):
         await ctx.send(f'{ctx.author.mention} 会議時間を60秒短縮しました')
 
 def setup(bot):
-    bot.add_cog(Commands(bot))
+    bot.add_cog(Slash(bot))

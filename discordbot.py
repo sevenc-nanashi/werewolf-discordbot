@@ -13,9 +13,9 @@ slash = SlashCommand(bot, sync_commands=True)
 bot.game = Game()
 
 cogs = [
-    'cogs.setting',
+    'cogs.admin',
     'cogs.main',
-    'cogs.commands',
+    'cogs.slash',
     'cogs.debug',
 ]
 

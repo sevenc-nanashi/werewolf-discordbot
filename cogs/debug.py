@@ -25,7 +25,8 @@ class Debug(commands.Cog):
         for i in ids:
             member = ctx.guild.get_member(i)
             player = Player(member)
-            player.name = f'市民{l.pop(0)}'
+            player.symbol = l.pop(0)
+            player.name = f'市民{player.symbol}'
             self.bot.game.players.append(player)
 
 def setup(bot):
